@@ -1,0 +1,15 @@
+---
+- name: Soapbox Configure
+  hosts: all
+  gather_facts: true
+  vars:
+    asdf_user: pleroma
+    asdf_group: pleroma
+
+  roles:
+  - role: ansible-role-asdf
+    asdf_plugins:
+    - name: "erlang"
+      versions: ["24.3"]
+    - name: "elixir"
+      versions: ["1.14"]
