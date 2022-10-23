@@ -15,9 +15,9 @@ Vagrant.configure("2") do |config|
   end
   config.vm.provision "ansible" do |ansible|
     # ansible.verbose = "vvv"
-    ansible.playbook = "soapbox-setup.yml"
+    ansible.playbook = "rebased-setup.yml"
   end
   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "soapbox-configure.yml"
+    ansible.playbook = "rebased-configure.yml"
   end
 end
