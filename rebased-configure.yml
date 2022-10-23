@@ -13,3 +13,18 @@
       global: ["24.3.4.2"]
     - name: "elixir"
       global: ["1.13"]
+
+  tasks:
+  - name: Setup ASDF
+    become: yes
+    become_user: pleroma
+    lineinfile:
+      path: ~/.bashrc
+      line: '. $HOME/.asdf/asdf.sh'
+
+  - name: Setup ASDF completion
+    become: yes
+    become_user: pleroma
+    lineinfile:
+      path: ~/.bashrc
+      line: '. $HOME/.asdf/completions/asdf.bash'
