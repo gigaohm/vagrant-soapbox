@@ -10,6 +10,6 @@
   - role: ansible-role-asdf
     asdf_plugins:
     - name: "erlang"
-      versions: ["24.3"]
+      global: ["24.3.4.2"]
     - name: "elixir"
-      versions: ["1.14"]
+      global: ["1.13"]
