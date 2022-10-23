@@ -29,6 +29,7 @@
       name:
         - vim
         - acl
+        - fail2ban
 
   - name: Install Soapbox Dependencies
     apt:
