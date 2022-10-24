@@ -28,3 +28,35 @@
     lineinfile:
       path: ~/.bashrc
       line: '. $HOME/.asdf/completions/asdf.bash'
+
+  - name: Install Hex
+    become: yes
+    become_user: pleroma
+    chdir: /opt/pleroma
+    command: mix local.hex --force
+    changed_when: >
+      "Will always run, don't show that it changed" == 1
+
+  - name: Install Rebar
+    become: yes
+    become_user: pleroma
+    chdir: /opt/pleroma
+    command: mix local.rebar --force
+    changed_when: >
+      "Will always run, don't show that it changed" == 1
+
+  - name: Get Deps
+    become: yes
+    become_user: pleroma
+    chdir: /opt/pleroma
+    command: mix deps.get
+    changed_when: >
+      "Will always run, don't show that it changed" == 1
+
+  - name: Compile Rebased
+    become: yes
+    become_user: pleroma
+    chdir: /opt/pleroma
+    command: MIX_ENV=prod mix compile
+    changed_when: >
+      "Will always run, don't show that it changed" == 1
